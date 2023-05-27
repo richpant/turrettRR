@@ -80,8 +80,8 @@ public class FieldCentric extends LinearOpMode {
             motorBackRight.setPower(backRightPower);
             turret.setPower(turret_power);
             if(gamepad2.a){
-                fly1.setPower(0.8);
-                fly2.setPower(0.8);
+                fly1.setPower(1);
+                fly2.setPower(1);
             }else{
                 fly1.setPower(0);
                 fly2.setPower(0);

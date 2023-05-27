@@ -57,8 +57,8 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
     static final double MAX_REV     = -1.0;     // Maximum REV power applied to motor
 
     // Define class members
-    DcMotor leftFront;
-    DcMotor rightFront;
+    DcMotor fly1;
+    DcMotor fly2;
     double  power   = 0;
     boolean rampUp  = true;
 
@@ -68,9 +68,9 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
 
         // Connect to motor (Assume standard left wheel)
         // Change the text in quotes to match any motor name on your robot.
-        leftFront = hardwareMap.get(DcMotor.class, "leftFront");
-        rightFront = hardwareMap.get(DcMotor.class, "rightFront");
-        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        fly1 = hardwareMap.get(DcMotor.class, "fly1");
+        fly2 = hardwareMap.get(DcMotor.class, "fly2");
+        fly2.setDirection(DcMotorSimple.Direction.REVERSE);
         // Wait for the start button
         telemetry.addData(">", "Press Start to run Motors." );
         telemetry.update();
@@ -103,15 +103,15 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
             telemetry.update();
 
             // Set the motor to the new power and pause;
-            leftFront.setPower(power);
-            rightFront.setPower(power);
+            fly1.setPower(power);
+            fly2.setPower(power);
             sleep(CYCLE_MS);
             idle();
         }
 
         // Turn off motor and signal done;
-        leftFront.setPower(0);
-        rightFront.setPower(0);
+        fly1.setPower(0);
+        fly2.setPower(0);
         telemetry.addData(">", "Done");
         telemetry.update();
 
